@@ -7,6 +7,7 @@ interface IProps {
     bold?: boolean;
     italic?: boolean;
     style?: any;
+    className?: string;
 }
 
 export const Text: React.FunctionComponent<IProps> = (props) => {
@@ -14,6 +15,7 @@ export const Text: React.FunctionComponent<IProps> = (props) => {
     let className = "my-text";
     if (bold) className += " bold";
     if (italic) className += " italic";
+    if (props.className) className += ` ${props.className}`;
     return (
         <div className={className} style={style}>
             {children}

@@ -6,10 +6,11 @@ import withEmptyScreen from "../shared/hocs/withEmptyScreen";
 import withOnmount from "../shared/hocs/withOnmount";
 import { ITag } from "./repository";
 import Tag from "./components/Tag";
-import Column, { Justify } from "../../components/Column";
+import Row, { Justify } from "../../components/Row";
+import Centered from "../../components/Centered";
 import IStore from "../../redux/store";
 import TagLayout from "../../components/Layouts/Tag";
-
+import Paper from "../../components/Paper";
 interface IProps {
     fetching: boolean;
     data: ITag[];
@@ -20,13 +21,17 @@ class Tags extends React.Component<IProps> {
     render() {
         const { data } = this.props;
         return (
-            <Column justify={Justify.Center}>
-                {data.map((item) => (
-                    <TagLayout sentimentScore={item.sentimentScore}>
-                        <Tag {...item} key={item.id} />
-                    </TagLayout>
-                ))}
-            </Column>
+            <Centered>
+                <Paper withShadow>
+                    <Row wrap justify={Justify.Start}>
+                        {data.map((item) => (
+                            <TagLayout sentimentScore={item.sentimentScore}>
+                                <Tag {...item} key={item.id} />
+                            </TagLayout>
+                        ))}
+                    </Row>
+                </Paper>
+            </Centered>
         );
     }
 }

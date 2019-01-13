@@ -9,6 +9,7 @@ export enum Justify {
 interface IProps {
     justify?: Justify;
     style?: {};
+    wrap?: boolean;
 }
 
 export const getClassNameByJustify = (justify: Justify): string => {
@@ -30,8 +31,9 @@ export const getClassNameByJustify = (justify: Justify): string => {
     }
 };
 
-const Row: React.FunctionComponent<IProps> = ({ children, justify, style }) => {
-    const className = `row${getClassNameByJustify(justify)}`;
+const Row: React.FunctionComponent<IProps> = ({ children, justify, style, wrap }) => {
+    let className = `row${getClassNameByJustify(justify)}`;
+    if (wrap) className += " wrap";
     return (
         <div style={style} className={className}>
             {children}

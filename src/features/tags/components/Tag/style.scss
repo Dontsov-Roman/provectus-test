@@ -1,0 +1,10 @@
+@import "../../../../../sass/main.scss";
+
+.tag {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    &:hover{
+        border: 1px solid $primary-color;
+    }
+}

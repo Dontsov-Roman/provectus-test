@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../../../components/Layouts/Tag";
 import { ITag } from "../../repository";
 import { Text } from "../../../../components/Text";
+import "./style.scss";
 
 interface IProps extends ITag {
     style?: any;
@@ -13,7 +14,7 @@ export class Tag extends React.Component<IProps> {
         const { label, style, id } = this.props;
         return (
             <Link to={`/${id}`}>
-                <Text style={style}>
+                <Text className="tag" style={style}>
                     {label}
                 </Text>
             </Link>
