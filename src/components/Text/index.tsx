@@ -6,15 +6,16 @@ import "./style.scss";
 interface IProps {
     bold?: boolean;
     italic?: boolean;
+    style?: any;
 }
 
-const Text: React.FunctionComponent<IProps> = (props) => {
-    const { children, bold, italic } = props;
+export const Text: React.FunctionComponent<IProps> = (props) => {
+    const { children, bold, italic, style } = props;
     let className = "my-text";
     if (bold) className += " bold";
     if (italic) className += " italic";
     return (
-        <div className={className}>
+        <div className={className} style={style}>
             {children}
         </div>
     );

@@ -2,6 +2,9 @@ import thunk from "redux-thunk";
 import { createStore, Store, applyMiddleware  } from "redux/lib/redux";
 import reducer from "./reducers";
 import IStore from "./store";
+import { initState as tagsInitState } from "../features/tags/redux/reducer";
+import tagsActions from "../features/tags/redux/actions";
+import { recursiveToArray, recursiveToList } from "./reducers/factory";
 
 export class AppRedux {
     store: Store<IStore>;
@@ -34,12 +37,22 @@ export class AppRedux {
         try {
             const serializedState = localStorage.getItem(this.stateLabel);
             if (serializedState === null) return undefined;
-            return { };
+            const fromLocalStorage = JSON.parse(serializedState);
+            return {
+                tags: {
+                    ...tagsInitState,
+                    ...fromLocalStorage.tags,
+                    data: recursiveToList(fromLocalStorage.tags.data)
+                }
+            };
         } catch (reason) {
             return undefined;
         }
     }
     private saveState(store: IStore) {
+        const tags: any = { ...store.tags };
+        tags.data = recursiveToArray(tags.data);
+        localStorage.setItem(this.stateLabel, JSON.stringify({ tags }));
         return;
     }
 }

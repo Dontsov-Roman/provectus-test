@@ -140,7 +140,8 @@ export default <Item, State extends ISimpleState<Item>>
             case constants.getByIdRequest: {
                 return {
                     ...state,
-                    fetchingOne: true
+                    fetchingOne: true,
+                    current: undefined
                 };
             }
             case constants.getByIdSuccess: {

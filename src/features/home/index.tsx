@@ -39,4 +39,4 @@ class ThemedHome extends React.Component<IHome> {
     }
 }
 
-export default withNamespaces()(ThemedHome);
+export default withNamespaces()(Home);

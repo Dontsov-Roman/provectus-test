@@ -1,8 +1,7 @@
 export default {
     welcome: "Welcome to test project for Provectus",
     noItems: "No items",
-    noSuggestions: "No suggestions",
-    noParagrapsh: "No paragraphs",
+    noTags: "No tags",
     send: "Send",
     approve: "Approve",
     reject: "Reject",
@@ -12,5 +11,6 @@ export default {
     showApproved: "Show approved",
     apply: "Apply",
     search: "Search",
-    getMore: "Get more"
+    getMore: "Get more",
+    tagNotFound: "Tag not found"
 };

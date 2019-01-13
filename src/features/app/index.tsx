@@ -1,17 +1,20 @@
 import * as React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import Home from "../home";
-import BrowserLayout from "../../components/Layouts/Browser";
-import repository from "../tags/repository";
+import Tags from "../tags";
+import Single from "../tags/Single";
+
+const HomeWithRouter = withRouter(Home);
 
 class App extends React.Component {
     render() {
-        repository.getAll();
         return (
             <Router>
-                <BrowserLayout>
-                    <Route path="/" exact strict component={Home} />
-                </BrowserLayout>
+                <div>
+                    <HomeWithRouter />
+                    <Route path="/" exact strict component={Tags} />
+                    <Route path="/:id" component={Single} />
+                </div>
             </Router>
         );
     }
