@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "/",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "outDir": "ts-build",
+    "allowJs": true,
+    "jsx": "react",
+    "types": [ ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "noResolve": false,
+    "noLib": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*",
+    "type-declarations/**/*"
+  ],
+  "exclude": [
+    // "node_modules",
+    "**/spec.tsx",
+    "**/spec.ts"
+  ]
+}
